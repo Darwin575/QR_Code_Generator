@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="" id="qr_code_form">
+        <p>Input your text or URL:</p>
+        <textarea type="text" id="user_input" placeholder="Text or URL" rows="4" cols="40"></textarea>
+        <div id="img_container">
+            <img src="" alt="" id="qr_code_img" hidden>
+
+        </div>
+        <button id="isButtonClicked">Generate</button>
+    </form> 
+ 
+</body>
+<script>
+    document.getElementById("isButtonClicked").addEventListener("click", Generate_QRCode);
+    let user_input = document.getElementById("user_input");
+    let qr_code_img = document.getElementById("qr_code_img");
+    function Generate_QRCode (event) {
+        event.preventDefault()
+        if (user_input.value.length > 0) {
+            qr_code_img.hidden = false
+            qr_code_img.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + user_input.value;
+        } else {
+            qr_code_img.hidden = true
+            user_input.classList.add('empty_input')
+            setTimeout(() => {
+                user_input.classList.remove('empty_input')
+            }, 1000);
+
+        }
+                       
+    }
+            
+</script> 
+
+</html>
