@@ -39,6 +39,18 @@ img{
     border-radius: 10px;
     border: 5px solid rgb(64, 6, 53);
 }
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 60px;
+    aspect-ratio: 4;
+    background: radial-gradient(circle closest-side,rgb(64, 6, 53) 90%,#0000) 0/calc(100%/3) 100% space;
+    clip-path: inset(0 100% 0 0);
+    animation: l1 1s steps(4) 2;
+    margin-left: 43%;
+  }
+  @keyframes l1 {to{clip-path: inset(0 -34% 0 0)}}
+
+
 .empty_input{
     animation: shake 0.1s linear 10;
 }
